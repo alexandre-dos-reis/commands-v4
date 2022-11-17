@@ -1,0 +1,4 @@
+# Copy the file and rename it : .graphqlrc.yaml
+schema: 
+  - http://localhost:8055/graphql-endpoint-1?access_token=<my-token>
+  - http://localhost:8055/graphql-endpoint-2?access_token=<my-token>
