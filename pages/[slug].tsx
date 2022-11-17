@@ -29,7 +29,6 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
 const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   selectedCommand,
 }) => {
-  const markdown = `Just a link: https://reactjs.com.`;
   return (
     <>
       <h1 className="text-3xl font-bold underline">{selectedCommand.title}</h1>
