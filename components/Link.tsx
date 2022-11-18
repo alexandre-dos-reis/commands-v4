@@ -18,6 +18,7 @@ export const Link = (props: LinkProps) => {
         className={props.className}
         href={props.href}
         onClick={props.onClick}
+        prefetch={false}
       >
         {props.children}
       </NextLink>
