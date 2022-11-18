@@ -11,9 +11,9 @@ export const getStaticProps = async () => {
 export default function Page() {
   return (
     <>
-      <h2 className="text-3xl font-bold underline">
+      <p>
         Bienvenue sur mon répertoire de commandes.
-      </h2>
+      </p>
       <p>
         Ce site a pour but de répertorier les commandes Unix que
         j&apos;utilise tous les jours et que j&apos;oublie très souvent. 😅

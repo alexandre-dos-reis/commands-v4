@@ -11,10 +11,12 @@ interface LayoutProps extends GlobalPropsType {
 
 export const Layout = ({ commands, children }: LayoutProps) => {
   return (
-    <div className="flex flex-col lg:grid lg:grid-cols-5 lg:auto-rows-auto h-screen">
+    <div className="flex flex-col h-screen overflow-y-hidden">
       <Header />
-      <Nav commands={commands} />
-      <Main>{children}</Main>
+      <div className="flex overflow-auto h-full">
+        <Nav commands={commands} />
+        <Main>{children}</Main>
+      </div>
       <Footer />
     </div>
   );

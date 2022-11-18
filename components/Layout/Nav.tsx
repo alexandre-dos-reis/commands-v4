@@ -20,7 +20,7 @@ export const Nav = ({ commands }: NavProps) => {
     <aside
       className={`${
         isOpen ? "block" : "hidden"
-      } lg:block lg:col-span-1 overflow-y-auto p-3 h-full`}
+      } lg:block overflow-y-auto p-3 h-full lg:max-w-xs`}
     >
       <nav>
         <ul className="flex flex-wrap gap-2 lg:gap-3 font-mono">

@@ -12,7 +12,7 @@ export const Main = ({ children }: MainProps) => {
     <main
       className={`${
         isOpen ? "hidden" : "block"
-      } lg:block lg:col-span-4 overflow-y-scroll p-3 h-full`}
+      } lg:block overflow-y-scroll p-3 h-full w-full`}
     >
       <div className="max-w-xl mx-auto">{children}</div>
     </main>
