@@ -7,6 +7,10 @@ import {
 } from "next";
 import { getGlobalProps } from "utils/global-props";
 import ReactMarkdown from "react-markdown";
+import { useHydrateAtoms } from "jotai/utils";
+import { currentCmdSlugAtom } from "utils/store";
+import { CommandItems } from "components/CommandItems";
+import { Markdown } from "components/Markdown";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -29,18 +33,19 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
 const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   selectedCommand,
 }) => {
+  useHydrateAtoms([[currentCmdSlugAtom, selectedCommand.slug]] as const);
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">{selectedCommand.title}</h1>
-      <ul>
-        {selectedCommand.sub_commands?.map((sc) => (
-          <li key={sc?.id} className="mb-3">
-            <ReactMarkdown>{sc?.info as string}</ReactMarkdown>
-            <div>{sc?.item}</div>
-          </li>
-        ))}
-      </ul>
-    </>
+    <div className="max-w-4xl mx-auto w-full my-10">
+      <header className="mb-10">
+        <h1 className="text-5xl font-bold text-center mb-10">
+          {selectedCommand.title}
+        </h1>
+        <Markdown bigger>{selectedCommand.description}</Markdown>
+      </header>
+      <main>
+        <CommandItems {...selectedCommand} />
+      </main>
+    </div>
   );
 };
 

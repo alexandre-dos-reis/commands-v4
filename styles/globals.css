@@ -6,4 +6,20 @@
     /* body {
         @apply overflow-y-scroll
     } */
+
+    html {
+        @apply bg-[#fcf2ec]
+    }
+
+    p {
+        @apply mb-4
+    }
+
+    p > code {
+        @apply bg-gray-300 py-1 px-2 rounded-lg font-mono
+    }
+
+    p > a {
+        @apply underline hover:opacity-60 underline-offset-2
+    }
 }

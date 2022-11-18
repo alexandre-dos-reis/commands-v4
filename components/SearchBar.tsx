@@ -1,19 +1,17 @@
+import { useAtom } from "jotai";
 import { Dispatch, SetStateAction } from "react";
+import { searchTextAtom } from "utils/store";
 
-interface SearchBarProps {
-  value: string;
-  setValue: Dispatch<SetStateAction<string>>;
-}
-
-export const SearchBar = ({ value, setValue }: SearchBarProps) => {
+export const SearchBar = () => {
+  const [searchText, setSearchText] = useAtom(searchTextAtom);
   return (
     <div className="hidden md:block">
       <input
         type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
       />
-      <button onClick={() => setValue("")}>X</button>
+      <button onClick={() => setSearchText("")}>X</button>
     </div>
   );
 };

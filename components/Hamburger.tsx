@@ -1,11 +1,8 @@
-import { Dispatch, SetStateAction } from "react";
+import { useAtom } from "jotai";
+import { menuAtom } from "utils/store";
 
-interface HamburgerProps {
-  isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
-}
-
-export const Hamburger = ({ isOpen, setIsOpen }: HamburgerProps) => {
+export const Hamburger = () => {
+  const [isOpen, setIsOpen] = useAtom(menuAtom);
   const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-black transition ease transform duration-300`;
   return (
     <button
