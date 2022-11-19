@@ -8,6 +8,7 @@ gql`
       slug
       tab
       net
+      cmd_order
     }
   }
 `;

@@ -261,7 +261,7 @@ export type String_Filter_Operators = {
 export type GetAllCommandsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAllCommandsQuery = { __typename?: 'Query', commands: Array<{ __typename?: 'commands', id: string, slug: string, tab: string, net?: boolean | null }> };
+export type GetAllCommandsQuery = { __typename?: 'Query', commands: Array<{ __typename?: 'commands', id: string, slug: string, tab: string, net?: boolean | null, cmd_order?: number | null }> };
 
 export type GetOneCommandQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -278,6 +278,7 @@ export const GetAllCommandsDocument = gql`
     slug
     tab
     net
+    cmd_order
   }
 }
     `;
