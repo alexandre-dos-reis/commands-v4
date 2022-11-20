@@ -50,12 +50,12 @@ export const Nav = ({ commands }: NavProps) => {
     <aside
       className={`${
         isOpen ? "block" : "hidden"
-      } lg:block overflow-y-auto p-3 h-full lg:w-[400px]`}
+      } lg:block overflow-y-auto h-full lg:w-[400px]`}
     >
       <div className="flex md:hidden justify-center items-center mt-2 mb-5">
         <SearchBar />
       </div>
-      <nav className="h-full">
+      <nav className="h-full overflow-y-scroll p-3 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-300 scrollbar-thumb-rounded-lg">
         {filteredCommands?.length === 0 ? (
           <div className="w-full h-full flex flex-col gap-10 justify-center items-center text-center text-2xl font-bold">
             Aucune
