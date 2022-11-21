@@ -5,7 +5,7 @@ import { Hamburger } from "../Hamburger";
 import { SearchBar } from "../SearchBar";
 
 export const Header = () => {
-  const [_, setSearchText] = useAtom(searchTextAtom);
+  const [, setSearchText] = useAtom(searchTextAtom);
 
   return (
     <header className="flex gap-4 items-center justify-between p-3 h-min border border-gray-300">

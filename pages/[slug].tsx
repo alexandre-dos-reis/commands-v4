@@ -6,13 +6,14 @@ import {
   NextPage,
 } from "next";
 import { getGlobalProps } from "utils/global-props";
-import ReactMarkdown from "react-markdown";
 import { useHydrateAtoms } from "jotai/utils";
 import { currentCmdSlugAtom } from "utils/store";
 import { CommandItems } from "components/CommandItems";
 import { Markdown } from "components/Markdown";
 import { useEffect } from "react";
 import router from "next/router";
+import { ENV_VARS } from "utils/env-vars";
+import Image from "next/image";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -49,14 +50,27 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     });
   }, []);
 
+  const imgQuality = "fit=cover&height=170&quality=80";
+  const src = `${ENV_VARS.ASSETS_ENDPOINT}/${selectedCommand.image}?${imgQuality}`;
   return (
     <>
-      <div className="h-1" id={top}></div>
+      <div className="h-1" id={top} />
       <div className="max-w-4xl mx-auto w-full my-10">
         <header className="mb-10">
-          <h1 className="text-5xl font-bold text-center mb-10">
-            {selectedCommand.title}
-          </h1>
+          {selectedCommand.image ? (
+            <div className="flex justify-center align-middle h-[170px] relative mb-10">
+              <Image
+                className="object-contain"
+                fill
+                src={src}
+                alt={selectedCommand.title}
+              />
+            </div>
+          ) : (
+            <h1 className="text-5xl font-bold text-center mb-10">
+              {selectedCommand.title}
+            </h1>
+          )}
           <Markdown bigger>{selectedCommand.description}</Markdown>
         </header>
         <main>

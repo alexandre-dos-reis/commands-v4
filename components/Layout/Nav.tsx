@@ -42,7 +42,7 @@ export const Nav = ({ commands }: NavProps) => {
       setCurrentCmdSlug(filteredCommands[0]?.slug);
       setSearchText("");
       setIsMatched(true)
-      router.push(`/${filteredCommands[0].tab}`);
+      router.push(`/${filteredCommands[0].slug}`);
     }
   }, [currentCmdSlug, filteredCommands, searchText]);
 

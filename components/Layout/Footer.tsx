@@ -1,7 +1,5 @@
 import { Link } from "components/Link";
 
-
-
 export const Footer = () => {
   const linkStyle = "underline underline-offset-2 hover:opacity-60";
 

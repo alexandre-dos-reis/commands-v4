@@ -12,6 +12,7 @@ specifiers:
   '@types/react-dom': 18.0.9
   add: ^2.0.6
   autoprefixer: ^10.4.13
+  clipboard-copy: ^4.0.1
   dotenv: ^16.0.3
   eslint: 8.27.0
   eslint-config-next: 13.0.3
@@ -36,6 +37,7 @@ dependencies:
   '@types/node': 18.11.9
   '@types/react': 18.0.25
   '@types/react-dom': 18.0.9
+  clipboard-copy: 4.0.1
   eslint: 8.27.0
   eslint-config-next: 13.0.3_e3uo4sehh4zr4i6m57mkkxxv7y
   graphql: 16.6.0
@@ -2285,6 +2287,10 @@ packages:
 
   /client-only/0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /clipboard-copy/4.0.1:
+    resolution: {integrity: sha512-wOlqdqziE/NNTUJsfSgXmBMIrYmfd5V0HCGsR8uAKHcg+h9NENWINcfRjtWGU77wDHC8B8ijV4hMTGYbrKovng==}
     dev: false
 
   /cliui/6.0.0:

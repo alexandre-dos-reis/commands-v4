@@ -1,4 +1,4 @@
-const BACKEND_ENDPOINT = process.env.BACKEND_ENDPOINT!;
+const BACKEND_ENDPOINT = `https://${process.env.NEXT_PUBLIC_BACKEND_ENDPOINT!}`;
 const BACKEND_TOKEN = process.env.BACKEND_TOKEN!;
 const GRAPHQL_ENDPOINT = `${BACKEND_ENDPOINT}/graphql`;
 const ASSETS_ENDPOINT = `${BACKEND_ENDPOINT}/assets`;
