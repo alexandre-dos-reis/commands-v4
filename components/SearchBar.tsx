@@ -1,9 +1,32 @@
 import { useAtom } from "jotai";
+import { useEffect, useRef, useState } from "react";
 import { searchTextAtom } from "utils/store";
 import { MatchedPopOver } from "./MatchedPopOver";
+import { osName } from "react-device-detect";
 
 export const SearchBar = () => {
   const [searchText, setSearchText] = useAtom(searchTextAtom);
+  const [metaKey, setMetaKey] = useState("META");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const macOS = "Mac OS";
+  const searchKey = "k";
+
+  const handleFocusOnShortcut = (e: KeyboardEvent) => {
+    if (osName !== macOS && e.ctrlKey && e.key === searchKey) {
+      inputRef.current?.focus();
+    }
+
+    if (osName === macOS && e.metaKey && e.key === searchKey) {
+      inputRef.current?.focus();
+    }
+  };
+
+  useEffect(() => {
+    setMetaKey(osName === macOS ? "CMD" : "CTRL");
+    document.addEventListener("keydown", handleFocusOnShortcut);
+    return () => document.removeEventListener("keydown", handleFocusOnShortcut);
+  }, []);
+
   const bgColor = "bg-gray-800";
 
   return (
@@ -24,9 +47,10 @@ export const SearchBar = () => {
         <input
           className={`p-2 font-mono text-xl min-w-[300px] ${bgColor} text-gray-200`}
           type="text"
-          placeholder="Rechercher [CMD + K]"
+          placeholder={`Rechercher [${metaKey} + K]`}
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
+          ref={inputRef}
         />
         <button
           className="p-2 flex justify-center items-center"

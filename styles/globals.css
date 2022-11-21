@@ -7,6 +7,10 @@
         @apply overflow-y-scroll
     } */
 
+    * {
+        @apply outline-gray-800
+    }
+
     html {
         @apply bg-[#fcf2ec]
     }

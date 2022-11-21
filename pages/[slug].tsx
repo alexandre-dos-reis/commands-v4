@@ -51,8 +51,8 @@ const Page: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
   return (
     <>
-      <div className=""></div>
-      <div className="max-w-4xl mx-auto w-full my-10" id={top}>
+      <div className="h-1" id={top}></div>
+      <div className="max-w-4xl mx-auto w-full my-10">
         <header className="mb-10">
           <h1 className="text-5xl font-bold text-center mb-10">
             {selectedCommand.title}

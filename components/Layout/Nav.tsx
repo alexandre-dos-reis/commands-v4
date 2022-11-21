@@ -44,7 +44,7 @@ export const Nav = ({ commands }: NavProps) => {
       setIsMatched(true)
       router.push(`/${filteredCommands[0].tab}`);
     }
-  }, [currentCmdSlug, filteredCommands, router, searchText, setCurrentCmdSlug, setIsOpen, setSearchText]);
+  }, [currentCmdSlug, filteredCommands, searchText]);
 
   return (
     <aside
