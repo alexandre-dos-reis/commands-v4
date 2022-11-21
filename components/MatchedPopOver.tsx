@@ -1,22 +1,32 @@
 import { Transition } from "@headlessui/react";
 import { useAtom } from "jotai";
+import { useEffect } from "react";
 import { matchedAtom } from "utils/store";
 
 export const MatchedPopOver = () => {
   const [isMatched, setIsMatched] = useAtom(matchedAtom);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isMatched) {
+        setIsMatched(false);
+      }
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [isMatched]);
+
   return (
     <>
       <Transition
-        show={true}
-        enter="transition-opacity duration-75"
+        show={isMatched}
+        enter="transition-all duration-[400ms]"
         enterFrom="opacity-0"
         enterTo="opacity-100"
         leave="transition-opacity duration-150"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className="absolute bg-red-200 z-50 -bottom-10 right-0">
+        <div className="absolute bg-green-300 z-50 bottom-0 -right-32 flex justify-center items-center gap-3 p-2 rounded-md">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
