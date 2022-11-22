@@ -14,15 +14,11 @@ server:
 steps:
 - name: Deploy via docker
   environment:
-    NEXT_PUBLIC_DIRECTUS_ENDPOINT:
-      from_secret: NEXT_PUBLIC_DIRECTUS_ENDPOINT
-    NEXT_PUBLIC_DOMAIN_NAME:
-      from_secret: NEXT_PUBLIC_DOMAIN_NAME
-    ACCESS_TOKEN:
-      from_secret: ACCESS_TOKEN
-    PREVIEW_TOKEN:
-      from_secret: PREVIEW_TOKEN
-    REGENERATE_TOKEN:
-      from_secret: REGENERATE_TOKEN
+    BACKEND_ENDPOINT:
+      from_secret: BACKEND_ENDPOINT
+    BACKEND_TOKEN:
+      from_secret: BACKEND_TOKEN
+    DOMAIN_NAME:
+      from_secret: DOMAIN_NAME
   commands:
     - docker-compose up -d --build --force-recreate
