@@ -5,7 +5,7 @@ export const Footer = () => {
 
   return (
     <footer className="text-center py-3 h-min border border-gray-300">
-      v4 | créé par{" "}
+      v4 | Créé par{" "}
       <Link className={linkStyle} href="https://alexandre-dosreis.me">
         Alexandre Dos Reis
       </Link>{" "}

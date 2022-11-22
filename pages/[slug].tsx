@@ -20,7 +20,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: (await getAllCommandsQuery()).map((c) => ({
       params: { slug: c.slug },
     })),
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
@@ -30,6 +30,7 @@ export const getStaticProps = async (ctx: GetStaticPropsContext) => {
       globalProps: await getGlobalProps(),
       selectedCommand: await getOneCommandQuery(ctx.params?.slug as string),
     },
+    revalidate: 300, // 5 min
   };
 };
 

@@ -14,12 +14,12 @@ export const Header = () => {
       </section>
       <section className="flex gap-20 items-center">
         <Link href="/">
-          <h1
+          <h2
             onClick={() => setSearchText("")}
-            className="text-3xl whitespace-nowrap font-mono uppercase font-bold text-gray-700"
+            className="text-3xl whitespace-nowrap font-mono font-bold text-gray-700"
           >
             Commandes Unix
-          </h1>
+          </h2>
         </Link>
         <div className="hidden md:block">
           <SearchBar />
