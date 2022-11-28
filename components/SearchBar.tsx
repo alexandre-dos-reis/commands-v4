@@ -2,7 +2,7 @@ import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
 import { searchTextAtom } from "utils/store";
 import { MatchedPopOver } from "./MatchedPopOver";
-import { osName } from "react-device-detect";
+import { osName, isMobile } from "react-device-detect";
 
 export const SearchBar = () => {
   const [searchText, setSearchText] = useAtom(searchTextAtom);
@@ -47,7 +47,7 @@ export const SearchBar = () => {
         <input
           className={`p-2 font-mono text-xl min-w-[300px] ${bgColor} text-gray-200`}
           type="text"
-          placeholder={`Rechercher [${metaKey} + K]`}
+          placeholder={`Rechercher${isMobile ? '' : ` [${metaKey} + K]`}`}
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           ref={inputRef}
