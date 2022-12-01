@@ -47,7 +47,7 @@ export const SearchBar = () => {
         <input
           className={`p-2 font-mono text-xl min-w-[300px] ${bgColor} text-gray-200`}
           type="text"
-          placeholder={`Rechercher${isMobile ? '' : ` [${metaKey} + K]`}`}
+          placeholder={`Rechercher${isMobile ? '...' : ` [${metaKey} + K]`}`}
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           ref={inputRef}

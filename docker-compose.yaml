@@ -9,6 +9,7 @@ services:
           BACKEND_TOKEN: ${BACKEND_TOKEN}
       networks:
         - caddy
+      restart: unless-stopped
       labels:
         caddy: ${DOMAIN_NAME}
         caddy.reverse_proxy: "{{upstreams 3000}}"
